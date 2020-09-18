@@ -43,6 +43,10 @@ export class AppComponent {
   }
   title = 'firebaseApp';
   email;
+
+  getUserInfo() {
+    this.authService.test()
+  }
   create() {
     this.angularFirestore.collection("people").add({ user: "user", ownerID: "123" })
   }

@@ -20,7 +20,8 @@
     </mat-form-field>
     <!-- <button [ngStyle]="{'margin-right': '2px'}" class="mat-raised-button" (click)="close()">Close</button> -->
     <div style="margin: 0 0 0 auto;">
-        <button [ngStyle]="{'margin-right': '2px'}" class="mat-raised-button" (click)="resetForm()">Reset</button>
+        <button type="button" [ngStyle]="{'margin-right': '2px'}" class="mat-raised-button"
+            (click)="resetForm()">Reset</button>
         <button mat-button [disabled]="!form.valid" class="mat-raised-button mat-primary"
             (click)="create()">Save</button>
     </div>

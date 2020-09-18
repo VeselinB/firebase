@@ -1,6 +1,6 @@
 <p>
   <mat-toolbar color="primary">
-    <span style=" margin-right: 6px;">User: {{email}}</span>
+    <span style=" margin-right: 6px;" (click)="getUserInfo()">User: {{email}}</span>
     <div style="margin: 0 0 0 auto;">
 
       <span *ngIf="!checkLocalStorageForLoggedUser()" routerLink="/people/createPeople">CreatePerson</span>

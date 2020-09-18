@@ -14,7 +14,18 @@ export class FirebaseService {
   getEmail() {
     this.email.next(JSON.parse(localStorage.getItem("user")).email)
   }
-
+  test() {
+    this.fireBaseAuth.onAuthStateChanged(function (user) {
+      if (user) {
+        // User is signed in.
+        console.log(user.displayName, user.email)
+        // ...
+      } else {
+        // User is signed out.
+        // ...
+      }
+    });
+  }
 
 
 

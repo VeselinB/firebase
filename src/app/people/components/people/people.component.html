@@ -2,15 +2,16 @@
 <!-- <button (click)="getPeople()">GetPeople</button> -->
 
 <button mat-button (click)="showPeopleByChoosenOptions('true')" class="mat-raised-button mat-primary"
-    style="margin-right: 6px;">Show
+    style="margin-right: 6px; margin-left: 25px;">Show
     People Created By you</button>
 <button mat-button (click)="showPeopleByChoosenOptions('false')" class="mat-raised-button mat-primary">Swow All
     People</button>
 <div class="loader" *ngIf="loading"></div>
 <div *ngFor="let person of people">
     <mat-card class="example-card">
-
         <mat-card-header>
+            <img style="width: 120px; height: 150px; margin-left: 70px;" mat-card-image src="{{person.img}}"
+                alt="Photo">
 
             <mat-card-title>Owner Email: {{person.
                 ownerEmail}} </mat-card-title>
