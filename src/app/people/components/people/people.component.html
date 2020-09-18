@@ -1,0 +1,24 @@
+<p>List of People</p>
+<!-- <button (click)="getPeople()">GetPeople</button> -->
+<div class="loader" *ngIf="loading"></div>
+
+<div *ngFor="let person of people">
+    <mat-card class="example-card">
+        <mat-card-header>
+
+            <mat-card-title>First Name: </mat-card-title>
+            <mat-card-subtitle>{{person.firstName}}</mat-card-subtitle>
+            <mat-card-title>Second Name: </mat-card-title>
+            <mat-card-subtitle>{{person.secondName}}</mat-card-subtitle>
+
+
+            <mat-card-title>Age: </mat-card-title>
+            <mat-card-subtitle>{{person.age}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-actions align="end" *ngIf="userId==person.ownerId">
+            <button mat-button class="mat-raised-button mat-primary" (click)="editPeople(person)">Edit</button>
+            <button mat-button class="mat-raised-button mat-warn" (click)="remove(person.id)">Remove</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -1,0 +1,32 @@
+<!-- <div>
+    <h1>SignIN</h1>
+    <input type="text" #email />
+    <input type="text" #password />
+    <button (click)="signIn(email.value,password.value)">LogIn</button>
+</div> -->
+
+<form class="form" [formGroup]="form">
+    <mat-label>Sign In</mat-label>
+
+    <mat-form-field>
+
+        <input matInput placeholder="Email" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Enter your password</mat-label>
+        <input matInput placeholder="Password" formControlName="password">
+    </mat-form-field>
+
+    <!-- <button [ngStyle]="{'margin-right': '2px'}" class="mat-raised-button" (click)="close()">Close</button> -->
+    <div style="margin: 0 0 0 auto;">
+        <!-- <button [ngStyle]="{'margin-right': '2px'}" class="mat-raised-button" (click)="resetForm()">Reset</button> -->
+        <button mat-button [disabled]="!form.valid" class="mat-raised-button mat-primary" (click)="signIn()">Sign
+            In</button>
+    </div>
+</form>
+
+
+<!-- <mat-dialog-actions align="end">
+
+</mat-dialog-actions> -->

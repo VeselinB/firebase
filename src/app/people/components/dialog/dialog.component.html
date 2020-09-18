@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>{{dialogTitle}}</h1>
+<mat-dialog-content class="form" [formGroup]="form">
+
+
+    <mat-form-field>
+        <input matInput placeholder="First Name" formControlName="firstName">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Second Name" formControlName="secondName">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="number" placeholder="Age" formControlName="age">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="image URl optional" formControlName="img">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="adress optional" formControlName="adress">
+    </mat-form-field>
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button [ngStyle]="{'margin-right': '2px'}" class="mat-raised-button" (click)="close()">Close</button>
+    <button [disabled]="!form.valid" class="mat-raised-button mat-primary" (click)="save()">Save</button>
+</mat-dialog-actions>
