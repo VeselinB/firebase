@@ -16,7 +16,16 @@ export class PeopleComponent implements OnInit {
 
   loading;
   userId;
+  showPeopleByChoosenOptionsBool = false;
   constructor(public store: Store<any>, public peopleService: PeopleService, private dialog: MatDialog) {
+    this.getPeople()
+  }
+
+  ngOnInit() {
+    // this.getPeople()
+
+  }
+  getPeople() {
     this.store.select(store => store.people).subscribe(store => {
       this.people = Object.values(store.entities)
       this.peopleService.sharedLoading.subscribe(res => {
@@ -27,9 +36,16 @@ export class PeopleComponent implements OnInit {
     this.userId = this.checkForUserId();
     console.log(this.userId)
   }
+  showPeopleByChoosenOptions(data) {
+    if (data == "true") {
+      let userid = this.checkForUserId();
+      let result = this.people.filter((p) => p.ownerId == userid)
+      console.log(result)
+      this.people = result
 
-  ngOnInit() {
-    // this.getPeople()
+    } else {
+      this.getPeople()
+    }
 
   }
   checkForUserId() {

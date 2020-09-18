@@ -1,12 +1,22 @@
 <p>List of People</p>
 <!-- <button (click)="getPeople()">GetPeople</button> -->
-<div class="loader" *ngIf="loading"></div>
 
+<button mat-button (click)="showPeopleByChoosenOptions('true')" class="mat-raised-button mat-primary"
+    style="margin-right: 6px;">Show
+    People Created By you</button>
+<button mat-button (click)="showPeopleByChoosenOptions('false')" class="mat-raised-button mat-primary">Swow All
+    People</button>
+<div class="loader" *ngIf="loading"></div>
 <div *ngFor="let person of people">
     <mat-card class="example-card">
+
         <mat-card-header>
 
+            <mat-card-title>Owner Email: {{person.
+                ownerEmail}} </mat-card-title>
             <mat-card-title>First Name: </mat-card-title>
+
+
             <mat-card-subtitle>{{person.firstName}}</mat-card-subtitle>
             <mat-card-title>Second Name: </mat-card-title>
             <mat-card-subtitle>{{person.secondName}}</mat-card-subtitle>
