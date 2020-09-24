@@ -1,15 +1,5 @@
-<p>
-  <mat-toolbar color="primary">
-    <span style=" margin-right: 6px;" (click)="getUserInfo()">User: {{email}}</span>
-    <div style="margin: 0 0 0 auto;">
+<app-navigation></app-navigation>
 
-      <span *ngIf="!checkLocalStorageForLoggedUser()" routerLink="/people/createPeople">CreatePerson</span>
-      <span *ngIf="checkLocalStorageForLoggedUser()" routerLink="/auth/login">SignIn</span>
-      <span *ngIf="checkLocalStorageForLoggedUser()" routerLink="/auth/register">SignUP</span>
-      <span *ngIf="!checkLocalStorageForLoggedUser()" (click)="signOut()">LogOut</span>
-    </div>
-  </mat-toolbar>
-</p>
 
 
 

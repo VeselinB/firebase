@@ -5,6 +5,7 @@ import { RegisterComponent } from '../components/register/register.component';
 import { Route, RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material/material.module';
+// import { EditDataComponent } from '../../users/components/edit-data/edit-data.component';
 const routes: Route[] = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -19,6 +20,7 @@ const routes: Route[] = [
     ReactiveFormsModule,
     FormsModule,
     RouterModule.forChild(routes),
-  ]
+  ],
+
 })
 export class AuthModule { }

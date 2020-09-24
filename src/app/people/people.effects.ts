@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { EMPTY, of } from 'rxjs';
-import { map, mergeMap, catchError, tap } from 'rxjs/operators';
+import { map, mergeMap, catchError, tap, switchMap } from 'rxjs/operators';
 import * as PeopleActions from './people.actions'
 import { PeopleService } from '../service/people.service';
 import { Store } from '@ngrx/store';
@@ -16,14 +16,30 @@ export class PeopleEffects {
     people$ = createEffect(() =>
         this.actions$.pipe(
             ofType(PeopleActions.createPeopleStart),
+            // switchMap(actions => this.peopleSrvice.createPeople(actions.people).pipe(
+            //     tap(r => { console.log(r) }),
+            //     map(res => PeopleActions.createPeople({ people: { ...actions.people, id: res.id } }),
+            //         // catchError(error => of(new FindAddressesRejected(error)))
+            //     )
+
+            // )),
             tap(actions => {
                 this.peopleSrvice.createPeople(actions.people).then(res => {
                     console.log({ ...actions.people, id: res.id })
-                    this.store.dispatch(PeopleActions.createPeople({ people: { ...actions.people, id: res.id } }))
+                    let idUser = JSON.parse(localStorage.getItem("user"));
+                    this.store.dispatch(PeopleActions.createPeople({ people: { ...actions.people, id: res.id, ownerId: idUser.uid, ownerEmail: idUser.email } }))
                 })
 
 
             }),
+
+            // this.peopleSrvice.createPeople(actions.people).then(res => {
+            //     this.peopleSrvice.getAllPeople().pipe(
+            //         map(results => PeopleActions.getAllPeople({ people: results })),
+            //         // catchError(error => of(new FindAddressesRejected(error)))
+            //     )
+            // })
+
 
         ), { dispatch: false }
 
@@ -33,22 +49,16 @@ export class PeopleEffects {
         this.actions$.pipe(
             ofType(PeopleActions.getAllPeopleStart),
 
-            tap(actions => {
-                this.peopleSrvice.getAllPeople().then(res => {
-                    res.subscribe(res => {
-                        console.log(res)
-                        this.store.dispatch(PeopleActions.getAllPeople({ people: res }))
-                    })
-                    this.peopleSrvice.getLoadingStatus();
-                })
+            switchMap(actions => this.peopleSrvice.getAllPeople().pipe(
 
+                map(results => PeopleActions.getAllPeople({ people: results }),
+                    // catchError(error => of(new FindAddressesRejected(error)))
+                )
 
-            }),
+            ))
 
-        ), { dispatch: false }
+        )
 
     )
-
-
 }
 

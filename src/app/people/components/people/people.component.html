@@ -1,31 +1,62 @@
-<p>List of People</p>
+<mat-form-field style="margin-top: 7px; margin-left: 7px;">
+    <input matInput placeholder="Search" [(ngModel)]='search' (keyup)="searchF()">
+</mat-form-field>
+
 <!-- <button (click)="getPeople()">GetPeople</button> -->
 
 <button mat-button (click)="showPeopleByChoosenOptions('true')" class="mat-raised-button mat-primary"
     style="margin-right: 6px; margin-left: 25px;">Show
     People Created By you</button>
-<button mat-button (click)="showPeopleByChoosenOptions('false')" class="mat-raised-button mat-primary">Swow All
+<button mat-button style="margin-right: 6px;" (click)="showPeopleByChoosenOptions('false')"
+    class="mat-raised-button mat-primary">Swow All
+    People</button>
+
+<button mat-button (click)="createPeople()" class="mat-raised-button mat-primary">Create
     People</button>
 <div class="loader" *ngIf="loading"></div>
-<div *ngFor="let person of people">
-    <mat-card class="example-card">
+<div class="display-flex">
+    <mat-card class="example-card" *ngFor="let person of people">
         <mat-card-header>
-            <img style="width: 120px; height: 150px; margin-left: 70px;" mat-card-image src="{{person.img}}"
-                alt="Photo">
-
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
             <mat-card-title>Owner Email: {{person.
                 ownerEmail}} </mat-card-title>
-            <mat-card-title>First Name: </mat-card-title>
-
-
+            <mat-card-title>First Name:</mat-card-title>
             <mat-card-subtitle>{{person.firstName}}</mat-card-subtitle>
-            <mat-card-title>Second Name: </mat-card-title>
+            <mat-card-title>Second Name:</mat-card-title>
             <mat-card-subtitle>{{person.secondName}}</mat-card-subtitle>
-
-
             <mat-card-title>Age: </mat-card-title>
             <mat-card-subtitle>{{person.age}}</mat-card-subtitle>
         </mat-card-header>
+        <div class="crop">
+            <img mat-card-image src="{{person.img}}" class="example-header-image" alt="Photo">
+        </div>
+
+        <mat-card-content>
+            <p>
+                <!-- The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                bred for hunting. -->
+            </p>
+        </mat-card-content>
+        <!--  -->
+        <!-- <mat-card class="example-card" >
+            <mat-card-header>
+                <img style="width: 120px; height: 150px; margin-left: 70px;" mat-card-image src="{{person.img}}"
+                    alt="Photo">
+
+                <mat-card-title>Owner Email: {{person.
+                ownerEmail}} </mat-card-title>
+                <mat-card-title>First Name: </mat-card-title>
+
+
+                <mat-card-subtitle>{{person.firstName}}</mat-card-subtitle>
+                <mat-card-title>Second Name: </mat-card-title>
+                <mat-card-subtitle>{{person.secondName}}</mat-card-subtitle>
+
+
+                <mat-card-title>Age: </mat-card-title>
+                <mat-card-subtitle>{{person.age}}</mat-card-subtitle>
+         </mat-card-header> -->
 
         <mat-card-actions align="end" *ngIf="userId==person.ownerId">
             <button mat-button class="mat-raised-button mat-primary" (click)="editPeople(person)">Edit</button>
@@ -33,3 +64,11 @@
         </mat-card-actions>
     </mat-card>
 </div>
+
+<ng-template #callAPIDialog>
+    <h2 matDialogTitle>Are you sure?</h2>
+    <mat-dialog-actions align="end">
+        <button mat-button matDialogClose="no">No</button>
+        <button color="warn" class="mat-raised-button mat-warn" mat-button matDialogClose="yes">Yes</button>
+    </mat-dialog-actions>
+</ng-template>

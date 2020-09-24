@@ -9,18 +9,26 @@ import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/da
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { MaterialModule } from './material/material.module';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 import { LoginComponent } from './users/components/login/login.component';
 import { RegisterComponent } from './users/components/register/register.component';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment.prod';
+import { NavigationComponent } from './navigation/navigation.component';
+import { EditDataComponent } from './users/components/edit-data/edit-data.component';
 @NgModule({
   declarations: [
     AppComponent,
+    NavigationComponent,
+    EditDataComponent,
 
   ],
   imports: [
+    ReactiveFormsModule,
+    FormsModule,
     MaterialModule,
     BrowserModule,
     AppRoutingModule,
@@ -44,6 +52,7 @@ import { environment } from 'src/environments/environment.prod';
       logOnly: environment.production
     })
   ],
+  entryComponents: [EditDataComponent],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })

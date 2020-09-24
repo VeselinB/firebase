@@ -11,17 +11,21 @@ export class PeopleService {
   public getAllPeople() {
     //let people = {};
     let people = [];
-
-    return (this.angularFirestore.firestore.collection(`people`).get().then((querySnapshot) => {
+    let reversed = []
+    // databaseReference.orderByChild("newsDate").startAt(new DateTime())
+    return from(this.angularFirestore.firestore.collection(`people`).orderBy("creationDate", "desc").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
 
         people.push({ id: doc.id, ...doc.data() })
 
 
+
       })
       console.log(people)
-
-      return of(people)
+      this.getLoadingStatus()
+      reversed = [...people].reverse();
+      console.log(reversed, people)
+      return people
     }))
 
   }
@@ -39,7 +43,7 @@ export class PeopleService {
   }
   createPeople(data) {
     let idUser = JSON.parse(localStorage.getItem("user"));
-    return (this.angularFirestore.collection("people").add({ ...data, ownerId: idUser.uid, ownerEmail: idUser.email }))
+    return (this.angularFirestore.collection("people").add({ ...data, ownerId: idUser.uid, ownerEmail: idUser.email, creationDate: new Date() }))
   }
   // public getPeopleById(id) {
   //   console.log(this.angularFirestore.collection("people").doc(id).get())

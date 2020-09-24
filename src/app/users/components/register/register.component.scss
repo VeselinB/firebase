@@ -8,3 +8,12 @@
     flex-direction: column;
     min-width: 350px;
 }
+
+.div {
+    display: flex;
+    justify-content: space-between;  
+}
+
+.pointer{
+    cursor: pointer;
+  }

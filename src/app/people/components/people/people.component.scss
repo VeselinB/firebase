@@ -68,12 +68,36 @@
 
 .example-card {
   max-width: 450px;
+  max-height: 450px;
   margin-left: 25px;
   margin-top: 25px;
   margin-bottom: 25px;
 }
-
+.display-flex{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
 // .example-header-image {
 //   // background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
 //   // background-size: cover;
 // }
+
+.crop {
+  width: 350px;
+  height: 150px;
+  overflow: hidden;
+}
+
+// .crop img {
+  
+//   // width: 400px;
+//   // height: 300px;
+//   // margin: 0 0 0 0;
+// }
+
+.example-header-image {
+ 
+  background-image: url('https://previews.123rf.com/images/glebstock/glebstock1606/glebstock160600179/58912949-hidden-face-in-the-shadow-male-person-silhouette.jpg');
+
+}

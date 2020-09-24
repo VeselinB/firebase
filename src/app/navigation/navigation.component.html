@@ -1,0 +1,24 @@
+<mat-toolbar color="primary">
+    <button mat-button style=" margin-right: 6px; " (click)=" getUserData()"> {{email}}</button>
+    <div style="margin: 0 0 0 auto;">
+
+
+        <button mat-button *ngIf="checkLocalStorageForLoggedUser()" routerLink="/auth/login">SignIn</button>
+        <button mat-button *ngIf="checkLocalStorageForLoggedUser()" routerLink="/auth/register">SignUP</button>
+        <button mat-button *ngIf="!checkLocalStorageForLoggedUser()" (click)="signOut()">LogOut</button>
+    </div>
+</mat-toolbar>
+
+
+
+
+
+<!-- <div>
+    <h1>logOut</h1>
+  
+  
+    <button (click)="create()">CreATE</button>
+    <button (click)="create()">getAllPeople</button>
+  
+  </div> -->
+<router-outlet></router-outlet>

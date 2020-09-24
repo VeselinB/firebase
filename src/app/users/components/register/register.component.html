@@ -15,9 +15,39 @@
 
     <mat-form-field>
         <mat-label>Enter your password</mat-label>
-        <input matInput placeholder="Password" formControlName="password">
+        <div class="div">
+            <input matInput [type]="isActive ? 'text' : 'password'" placeholder="Password" formControlName="password"
+                (blur)="checkLenght()">
+            <mat-icon class="pointer" aria-hidden="false" aria-label="Example home icon" (click)="showPass()">
+                remove_red_eye</mat-icon>
+        </div>
     </mat-form-field>
 
+    <mat-form-field>
+        <mat-label>Confirm your password</mat-label>
+        <input matInput [type]="isActive ? 'text' : 'password'" placeholder="Confirmed Password"
+            formControlName="confirmPassword">
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <mat-label>Name Optional</mat-label>
+        <input matInput type="text" placeholder="Name Optional" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Phone Number Optional</mat-label>
+        <input matInput type="text" placeholder="Phone Number Optional" formControlName="phoneNumber">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Photo URL Optional</mat-label>
+        <input matInput type="text" placeholder="Proto URL Optional" formControlName="photoUrl">
+    </mat-form-field>
+
+
+
+    <mat-error *ngIf="error">{{error}}</mat-error>
     <!-- <button [ngStyle]="{'margin-right': '2px'}" class="mat-raised-button" (click)="close()">Close</button> -->
     <div style="margin: 0 0 0 auto;">
         <!-- <button [ngStyle]="{'margin-right': '2px'}" class="mat-raised-button" (click)="resetForm()">Reset</button> -->

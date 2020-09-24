@@ -10,8 +10,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
 
-const MODULES = [MatProgressSpinnerModule, MatToolbarModule, MatSidenavModule, MatSelectModule, MatInputModule, DragDropModule, MatCardModule, MatButtonModule, MatDialogModule, MatFormFieldModule]
+
+const MODULES = [MatIconModule, MatProgressSpinnerModule, MatToolbarModule, MatSidenavModule, MatSelectModule, MatInputModule, DragDropModule, MatCardModule, MatButtonModule, MatDialogModule, MatFormFieldModule]
 
 @NgModule({
   declarations: [],

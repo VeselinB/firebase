@@ -5,7 +5,7 @@
     <button (click)="signIn(email.value,password.value)">LogIn</button>
 </div> -->
 
-<form class="form" [formGroup]="form">
+<form class="form" [formGroup]="form" autcomplete="false">
     <mat-label>Sign In</mat-label>
 
     <mat-form-field>
@@ -15,14 +15,25 @@
 
     <mat-form-field>
         <mat-label>Enter your password</mat-label>
-        <input matInput placeholder="Password" formControlName="password">
+        <div class="div">
+            <input readonly onfocus="removeAttribute('readonly')" [type]="isActive ? 'text' : 'password'" matInput
+                placeholder="Password" formControlName="password">
+            <mat-icon class="pointer" aria-hidden="false" aria-label="Example home icon" (click)="showPass()">
+                remove_red_eye</mat-icon>
+
+        </div>
     </mat-form-field>
 
+    <mat-error *ngIf="error">{{error}}</mat-error>
     <!-- <button [ngStyle]="{'margin-right': '2px'}" class="mat-raised-button" (click)="close()">Close</button> -->
     <div style="margin: 0 0 0 auto;">
         <!-- <button [ngStyle]="{'margin-right': '2px'}" class="mat-raised-button" (click)="resetForm()">Reset</button> -->
         <button mat-button [disabled]="!form.valid" class="mat-raised-button mat-primary" (click)="signIn()">Sign
             In</button>
+        <!-- <button mat-button [disabled]="!form.valid" class="mat-raised-button mat-primary" (click)="test()">LogIn wit -->
+        <!-- Google</button> -->
+        <!-- <button mat-button class="mat-raised-button mat-primary" (click)=getUserData()>Sign
+            In</button> -->
     </div>
 </form>
 

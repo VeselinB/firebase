@@ -32,6 +32,6 @@ const routes: Route[] = [
     EffectsModule.forFeature([PeopleEffects]),
 
   ],
-  entryComponents: [DialogComponent]
+  entryComponents: [DialogComponent, CreatePeopleComponent]
 })
 export class PeopleModule { }
