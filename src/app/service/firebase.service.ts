@@ -12,8 +12,27 @@ export class FirebaseService {
   constructor(public fireBaseAuth: AngularFireAuth) { }
 
   private email = new BehaviorSubject('');
+  private photoUrl = new BehaviorSubject('');
   sharedEmail = this.email.asObservable();
+  sharedPhotoURl = this.photoUrl.asObservable();
+  getPhotoUrl() {
+    let gEmail;
+    this.fireBaseAuth.onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in.
+        gEmail = user.email
+        console.log(user.email, "test")
+        this.photoUrl.next(user.photoURL)
+        // ...
+      } else {
+        gEmail = "No logged user!"
+        this.email.next("No logged user!")
+      }
+    }).then(res => {
+      console.log(res)
+    });
 
+  }
   getUserData() {
     return this.fireBaseAuth.currentUser
   }

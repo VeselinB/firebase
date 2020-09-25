@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/people/people']);
       // this.peopleService.getAllPeople();
       this.authService.getEmail();
+      this.authService.getPhotoUrl();
     }).catch((err) => { this.error = err })
 
 

@@ -27,8 +27,10 @@
             <mat-card-title>Age: </mat-card-title>
             <mat-card-subtitle>{{person.age}}</mat-card-subtitle>
         </mat-card-header>
-        <div class="crop">
-            <img mat-card-image src="{{person.img}}" class="example-header-image" alt="Photo">
+        <div style="height: 250px; width: 350px;  margin: 0 0 0 0">
+            <img style="max-width: 200%;max-height: 100%" mat-card-image
+                [src]="person.img=='' ? 'https://www.allianceplast.com/wp-content/uploads/2017/11/no-image.png' : person.img"
+                alt="Photo">
         </div>
 
         <mat-card-content>
@@ -62,6 +64,7 @@
             <button mat-button class="mat-raised-button mat-primary" (click)="editPeople(person)">Edit</button>
             <button mat-button class="mat-raised-button mat-warn" (click)="remove(person.id)">Remove</button>
         </mat-card-actions>
+        <p></p>
     </mat-card>
 </div>
 

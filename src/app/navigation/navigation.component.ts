@@ -17,13 +17,16 @@ export class NavigationComponent {
     authService.sharedEmail.subscribe(email => {
       this.email = email;
     })
+
+    authService.sharedPhotoURl.subscribe(photo => {
+      this.photoURL = photo
+    })
+
   }
   ngOnInit() {
-    this.authService.getEmail();
-    if (localStorage.getItem("user") !== null) {
-      this.authService.isLoggedIn = true;
-    }
 
+    this.authService.getEmail();
+    this.authService.getPhotoUrl();
     // this.angularFirestore.collection("people").add({ user: "user", ownerID: "123" })
     // // this.angularFirestore.collection("people").valueChanges().subscribe(data => {
     // //   console.log(data)
@@ -46,6 +49,7 @@ export class NavigationComponent {
   }
   title = 'firebaseApp';
   email;
+  photoURL;
   getUserData() {
 
     //   this.db.collection('users').doc('some_uid').valueChanges().subscribe((response) => {
@@ -54,6 +58,8 @@ export class NavigationComponent {
     let userData;
     this.authService.getUserData().then(res => {
       if (res != null) {
+        this.photoURL = res.providerData[0].photoURL
+        console.log(this.photoURL, "p")
         console.log(res.providerData[0])
         this.openDialog(res.providerData[0])
       }
@@ -80,6 +86,7 @@ export class NavigationComponent {
         console.log(data)
         this.authService.updateUserData(data).then(function () {
           console.log(data)
+          this.authService.getPhotoUrl();
         }).catch(function (error) {
           console.log("An error happened")
         });
@@ -116,6 +123,8 @@ export class NavigationComponent {
     // })
 
     this.authService.logout()
+    localStorage.clear()
+    this.photoURL = "";
     this.email = null;
 
     this.router.navigate(['/auth/login']);

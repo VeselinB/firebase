@@ -48,7 +48,9 @@ export class PeopleComponent implements OnInit {
   getPeople() {
     this.store.select(store => store.people).subscribe(store => {
       this.people = Object.values(store.entities)
+      this.people = this.people.reverse()
       this.peopleFS = Object.values(store.entities)
+      this.peopleFS = this.peopleFS.reverse()
       this.peopleService.sharedLoading.subscribe(res => {
         this.loading = res;
       })

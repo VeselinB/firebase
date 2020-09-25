@@ -21,10 +21,9 @@ export class PeopleService {
 
 
       })
-      console.log(people)
+
       this.getLoadingStatus()
-      reversed = [...people].reverse();
-      console.log(reversed, people)
+
       return people
     }))
 
