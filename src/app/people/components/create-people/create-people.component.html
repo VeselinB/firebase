@@ -1,4 +1,5 @@
-<form class="form" [formGroup]="form">
+<h1 mat-dialog-title>{{dialogTitle}}</h1>
+<mat-dialog-content class="form" [formGroup]="form">
 
 
     <mat-form-field>
@@ -19,13 +20,17 @@
         <input matInput placeholder="adress optional" formControlName="adress">
     </mat-form-field>
     <!-- <button [ngStyle]="{'margin-right': '2px'}" class="mat-raised-button" (click)="close()">Close</button> -->
-    <div style="margin: 0 0 0 auto;">
+    <mat-dialog-actions style="margin: 0 0 0 auto;" align="end">
+        <button [ngStyle]="{'margin-right': '2px'}" class="mat-raised-button" (click)="close()">Close</button>
+        <button [disabled]="!form.valid" class="mat-raised-button mat-primary" (click)="save()">Save</button>
+    </mat-dialog-actions>
+    <!-- <div style="margin: 0 0 0 auto;">
         <button type="button" [ngStyle]="{'margin-right': '2px'}" class="mat-raised-button"
-            (click)="resetForm()">Reset</button>
+            (click)=" close()">Close</button>
         <button mat-button [disabled]="!form.valid" class="mat-raised-button mat-primary"
             (click)=" save()">Save</button>
-    </div>
-</form>
+    </div> -->
+</mat-dialog-content>
 
 <!-- <mat-dialog-actions align="end">
 

@@ -12,7 +12,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
   styleUrls: ['./create-people.component.scss']
 })
 export class CreatePeopleComponent implements OnInit {
-
+  dialogTitle = "Create person"
   form: FormGroup;
   constructor(public store: Store<any>, private formBuilder: FormBuilder, private router: Router, public peopleSrvice: PeopleService, public dialogRef: MatDialogRef<CreatePeopleComponent>,
     @Inject(MAT_DIALOG_DATA) public data) {

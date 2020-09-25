@@ -10,7 +10,7 @@ import { v4 as uuid } from 'uuid';
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent implements OnInit {
-  dialogTitle = "Create new user";
+  dialogTitle = "Edit person";
   user: string;
   email: string;
   form: FormGroup;

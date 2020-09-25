@@ -127,8 +127,8 @@ export class PeopleComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(
       data => {
-
-        if (data == undefined) {
+        console.log(data)
+        if (data == undefined || data.data == false) {
           // console.log(data)
           return;
         }
