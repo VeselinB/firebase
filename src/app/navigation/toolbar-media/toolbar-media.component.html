@@ -1,0 +1,46 @@
+<mat-sidenav #sidenav mode="push" position="end" class="app-sidenav">
+    <mat-toolbar color="primary">
+        <!--future svg to go here-->
+        <span class="toolbar-filler"></span>
+        <button mat-icon-button (click)="sidenav.toggle()" class="mat-icon-button sidenav-toggle-button"
+            [hidden]="!sidenav.opened">
+            <mat-icon aria-label="Menu" class="material-icons">close</mat-icon>
+        </button>
+    </mat-toolbar>
+    <mat-nav-list>
+        <a *ngIf="checkLocalStorageForLoggedUser()" mat-list-item class="sidenav-link" [routerLink]="['/auth/login']"
+            (click)="sidenav.toggle()">
+            <mat-icon mat-list-icon>account_balance</mat-icon>
+            <span class="title" mat-line>SignIn</span>
+            <!-- <span mat-line class="secondary">test</span> -->
+        </a>
+        <a *ngIf="checkLocalStorageForLoggedUser()" mat-list-item class="sidenav-link" [routerLink]="['/auth/register']"
+            (click)="sidenav.toggle()">
+            <mat-icon mat-list-icon>android</mat-icon>
+            <span class="title" mat-line>SignUp</span>
+            <!-- <span mat-line class="secondary">test</span> -->
+        </a>
+        <a *ngIf="!checkLocalStorageForLoggedUser()" mat-list-item class="sidenav-link" (click)="sidenav.toggle()"
+            (click)="signOut()">
+            <mat-icon mat-list-icon>android</mat-icon>
+            <span class="title" mat-line>LogOut</span>
+            <!-- <span mat-line class="secondary">test</span> -->
+        </a>
+    </mat-nav-list>
+</mat-sidenav>
+
+<mat-toolbar id="appToolbar" color="primary" class="hide-on-small-screens">
+
+    <h1 class="component-title">
+        <a class="title-link">{{title}}</a>
+    </h1>
+    <img *ngIf="photoURL" src="{{photoURL}}" style="height: 40px; width: 40px;  margin: 0 5px 0 0; border-radius: 50%;"
+        alt="">
+    <button mat-button style=" margin-right: 6px; " (click)=" getUserData()"> {{email}}</button>
+    <span class="toolbar-filler"></span>
+    <!--<button id="button-login" mat-button [routerLink]="['/signupin']" *ngIf="!(user | async)">Log In</button>-->
+    <button mat-icon-button (click)="sidenav.toggle()" class="mat-icon-button sidenav-toggle-button"
+        [hidden]="sidenav.opened">
+        <mat-icon aria-label="Menu" class="material-icons">menu</mat-icon>
+    </button>
+</mat-toolbar>

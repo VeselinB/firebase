@@ -1,13 +1,4 @@
-.form {
-    margin-left: 38%;
-    margin-right: 38%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    min-width: 350px;
-}
+
 
 .div {
     display: flex;
@@ -16,5 +7,39 @@
 
 .pointer{
     cursor: pointer;
-  }
+}
+
+@media only screen and (max-width: 500px) {
+    .form {
+        margin-left: 15%;
+        margin-right: 15%;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        min-width: 70%;
+    }
+
+}
+
+
+@media only screen and (min-width: 500px) {
+   
+        .form {
+            margin-left: 38%;
+            margin-right: 38%;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            min-width: 350px;
+        }
+   
+
+
+}
+
+ 
 

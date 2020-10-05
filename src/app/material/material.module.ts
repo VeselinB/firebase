@@ -11,9 +11,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 
-const MODULES = [MatIconModule, MatProgressSpinnerModule, MatToolbarModule, MatSidenavModule, MatSelectModule, MatInputModule, DragDropModule, MatCardModule, MatButtonModule, MatDialogModule, MatFormFieldModule]
+const MODULES = [MatListModule, MatIconModule, MatProgressSpinnerModule, MatToolbarModule, MatSidenavModule, MatSelectModule, MatInputModule, DragDropModule, MatCardModule, MatButtonModule, MatDialogModule, MatFormFieldModule]
 
 @NgModule({
   declarations: [],

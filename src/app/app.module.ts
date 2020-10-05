@@ -19,11 +19,15 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment.prod';
 import { NavigationComponent } from './navigation/navigation.component';
 import { EditDataComponent } from './users/components/edit-data/edit-data.component';
+import { ToolbarMediaComponent } from './navigation/toolbar-media/toolbar-media.component';
+import { ToolbarNoMediaComponent } from './navigation/toolbar-no-media/toolbar-no-media.component'
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     EditDataComponent,
+    ToolbarMediaComponent,
+    ToolbarNoMediaComponent,
 
   ],
   imports: [

@@ -1,15 +1,19 @@
-<mat-toolbar color="primary" class="example-spacer">
-    <img *ngIf="photoURL" src="{{photoURL}}" style="height: 40px; width: 40px;  margin: 0 5px 0 0; border-radius: 50%;"
-        alt="">
-    <button mat-button style=" margin-right: 6px; " (click)=" getUserData()"> {{email}}</button>
-    <div style="margin: 0 0 0 auto;">
+<mat-sidenav-container fullscreen>
+
+    <app-toolbar-media class="hide-on-small-screens"></app-toolbar-media>
+    <app-toolbar-no-media class="show-on-small-screens"></app-toolbar-no-media>
 
 
-        <button mat-button *ngIf="checkLocalStorageForLoggedUser()" routerLink="/auth/login">SignIn</button>
-        <button mat-button *ngIf="checkLocalStorageForLoggedUser()" routerLink="/auth/register">SignUP</button>
-        <button mat-button *ngIf="!checkLocalStorageForLoggedUser()" (click)="signOut()">LogOut</button>
-    </div>
-</mat-toolbar>
+
+
+
+    <router-outlet></router-outlet>
+</mat-sidenav-container>
+
+
+
+<!--  -->
+
 
 
 
@@ -23,4 +27,3 @@
     <button (click)="create()">getAllPeople</button>
   
   </div> -->
-<router-outlet></router-outlet>
