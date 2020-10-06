@@ -6,6 +6,7 @@ import { PeopleService } from '../service/people.service';
 import { Router } from '@angular/router';
 import { fromEvent } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog'; import { EditDataComponent } from '../users/components/edit-data/edit-data.component';
+
 ;
 @Component({
   selector: 'app-navigation',
@@ -13,7 +14,9 @@ import { MatDialog } from '@angular/material/dialog'; import { EditDataComponent
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent {
+
   constructor(private dialog: MatDialog, private router: Router, public peopleService: PeopleService, public authService: FirebaseService, private angularFirestore: AngularFirestore) {
+
     authService.sharedEmail.subscribe(email => {
       this.email = email;
     })

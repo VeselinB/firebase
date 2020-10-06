@@ -10,20 +10,20 @@
     <mat-nav-list>
         <a *ngIf="checkLocalStorageForLoggedUser()" mat-list-item class="sidenav-link" [routerLink]="['/auth/login']"
             (click)="sidenav.toggle()">
-            <mat-icon mat-list-icon>account_balance</mat-icon>
-            <span class="title" mat-line>SignIn</span>
+            <mat-icon mat-list-icon>{{signIn.icon}}</mat-icon>
+            <span class="title" mat-line>{{signIn.text}}</span>
             <!-- <span mat-line class="secondary">test</span> -->
         </a>
         <a *ngIf="checkLocalStorageForLoggedUser()" mat-list-item class="sidenav-link" [routerLink]="['/auth/register']"
             (click)="sidenav.toggle()">
-            <mat-icon mat-list-icon>android</mat-icon>
-            <span class="title" mat-line>SignUp</span>
+            <mat-icon mat-list-icon>{{signUp.icon}}</mat-icon>
+            <span class="title" mat-line>{{signUp.text}}</span>
             <!-- <span mat-line class="secondary">test</span> -->
         </a>
         <a *ngIf="!checkLocalStorageForLoggedUser()" mat-list-item class="sidenav-link" (click)="sidenav.toggle()"
             (click)="signOut()">
-            <mat-icon mat-list-icon>android</mat-icon>
-            <span class="title" mat-line>LogOut</span>
+            <mat-icon mat-list-icon>{{LogOut.icon}}</mat-icon>
+            <span class="title" mat-line>{{LogOut.text}}</span>
             <!-- <span mat-line class="secondary">test</span> -->
         </a>
     </mat-nav-list>

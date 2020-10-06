@@ -3,6 +3,7 @@ import { FirebaseService } from 'src/app/service/firebase.service';
 import { Router } from '@angular/router';
 import { EditDataComponent } from 'src/app/users/components/edit-data/edit-data.component';
 import { MatDialog } from '@angular/material';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-toolbar-media',
@@ -10,10 +11,18 @@ import { MatDialog } from '@angular/material';
   styleUrls: ['./toolbar-media.component.scss']
 })
 export class ToolbarMediaComponent implements OnInit {
+  signUp;
+  signIn;
+  LogOut;
   email;
   photoURL;
   angularFirestore: any;
-  constructor(private dialog: MatDialog, public authService: FirebaseService, private router: Router) {
+  constructor(public data: DataService, private dialog: MatDialog, public authService: FirebaseService, private router: Router) {
+
+    this.signIn = this.data.login();
+    this.signUp = this.data.register();
+    this.LogOut = this.data.signOut()
+
     authService.sharedEmail.subscribe(email => {
       this.email = email;
     })

@@ -5,6 +5,7 @@ import { PeopleService } from 'src/app/service/people.service';
 import { EditDataComponent } from 'src/app/users/components/edit-data/edit-data.component';
 import { FirebaseService } from 'src/app/service/firebase.service';
 import { AngularFirestore } from "@angular/fire/firestore"
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-toolbar-no-media',
@@ -12,7 +13,16 @@ import { AngularFirestore } from "@angular/fire/firestore"
   styleUrls: ['./toolbar-no-media.component.scss']
 })
 export class ToolbarNoMediaComponent implements OnInit {
-  constructor(private dialog: MatDialog, private router: Router, public peopleService: PeopleService, public authService: FirebaseService, private angularFirestore: AngularFirestore) {
+
+  signUp;
+  signIn;
+  LogOut;
+  constructor(public data: DataService, private dialog: MatDialog, private router: Router, public peopleService: PeopleService, public authService: FirebaseService, private angularFirestore: AngularFirestore) {
+    this.signIn = this.data.login();
+    this.signUp = this.data.register();
+    this.LogOut = this.data.signOut()
+
+
     authService.sharedEmail.subscribe(email => {
       this.email = email;
     })

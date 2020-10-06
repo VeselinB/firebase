@@ -5,8 +5,8 @@
     <div style="margin: 0 0 0 auto;">
 
 
-        <button mat-button *ngIf="checkLocalStorageForLoggedUser()" routerLink="/auth/login">SignIn</button>
-        <button mat-button *ngIf="checkLocalStorageForLoggedUser()" routerLink="/auth/register">SignUP</button>
-        <button mat-button *ngIf="!checkLocalStorageForLoggedUser()" (click)="signOut()">LogOut</button>
+        <button mat-button *ngIf="checkLocalStorageForLoggedUser()" routerLink="/auth/login">{{signIn.text}}</button>
+        <button mat-button *ngIf="checkLocalStorageForLoggedUser()" routerLink="/auth/register">{{signUp.text}}</button>
+        <button mat-button *ngIf="!checkLocalStorageForLoggedUser()" (click)="signOut()">{{LogOut.text}}</button>
     </div>
 </mat-toolbar>

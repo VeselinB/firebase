@@ -65,7 +65,11 @@
     transform: rotate(360deg);
   }
 }
-
+img { 
+  flex:1 0 15em;
+  min-width: 15em;
+  max-width:350px;
+}
 .example-card {
   max-width: 450px;
   max-height: 450px;
