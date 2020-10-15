@@ -25,9 +25,23 @@ button{
 }
 
 @media only screen and (max-width: 500px) {
+
+    
+  
   .show-on-small-screens {
+    
       display: none;
+    
   }
 
   
+}
+
+.menu-container {
+  position: unset;
+
+}
+
+.mat-drawer-side {
+  border: none;
 }

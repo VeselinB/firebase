@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { EditDataComponent } from 'src/app/users/components/edit-data/edit-data.component';
 import { MatDialog } from '@angular/material';
 import { DataService } from '../data.service';
+import { PeopleService } from 'src/app/service/people.service';
 
 @Component({
   selector: 'app-toolbar-media',
@@ -14,14 +15,18 @@ export class ToolbarMediaComponent implements OnInit {
   signUp;
   signIn;
   LogOut;
+  filterUserPeople;
+  filteAllrUserPeople;
   email;
   photoURL;
   angularFirestore: any;
-  constructor(public data: DataService, private dialog: MatDialog, public authService: FirebaseService, private router: Router) {
+  constructor(public peopleService: PeopleService, public data: DataService, private dialog: MatDialog, public authService: FirebaseService, private router: Router) {
 
     this.signIn = this.data.login();
     this.signUp = this.data.register();
     this.LogOut = this.data.signOut()
+    this.filterUserPeople = this.data.people()
+    this.filteAllrUserPeople = this.data.allPeople()
 
     authService.sharedEmail.subscribe(email => {
       this.email = email;
@@ -37,7 +42,9 @@ export class ToolbarMediaComponent implements OnInit {
     this.authService.getEmail();
     this.authService.getPhotoUrl();
   }
-
+  public filterPeople(data) {
+    this.peopleService.filterPeople(data)
+  }
 
   getUserData() {
 

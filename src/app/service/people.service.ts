@@ -7,6 +7,10 @@ import { of, from, BehaviorSubject } from 'rxjs';
 })
 export class PeopleService {
   private loading = new BehaviorSubject(true);
+  private filterPeopleByUser = new BehaviorSubject('false');
+
+  sharedFilterPeopleByUser = this.filterPeopleByUser.asObservable();
+  sharedLoading = this.loading.asObservable();
   constructor(public angularFirestore: AngularFirestore) { }
   public getAllPeople() {
     //let people = {};
@@ -28,10 +32,15 @@ export class PeopleService {
     }))
 
   }
-  sharedLoading = this.loading.asObservable();
+
   getLoadingStatus() {
     this.loading.next(false)
   }
+
+  filterPeople(data) {
+    this.filterPeopleByUser.next(data)
+  }
+
   public deletePeopleById(id) {
     return this.angularFirestore.collection("people").doc(id).delete()
   }

@@ -83,6 +83,8 @@ img {
   flex-direction: row;
  
 }
+
+
 // .example-header-image {
 //   // background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
 //   // background-size: cover;
@@ -106,4 +108,18 @@ img {
  
   background-image: url('https://previews.123rf.com/images/glebstock/glebstock1606/glebstock160600179/58912949-hidden-face-in-the-shadow-male-person-silhouette.jpg');
 
+}
+
+.card-deck-container {
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  border-radius: 2px;
+  padding: 10px 10px 30px;
+  margin: 10px 10px 10px 10px;
+  background-color: #f5f5f5;
+}
+
+.card-item {
+  padding: 3px 3px 3px 3px;
 }

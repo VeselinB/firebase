@@ -7,6 +7,10 @@
 
         <button mat-button *ngIf="checkLocalStorageForLoggedUser()" routerLink="/auth/login">{{signIn.text}}</button>
         <button mat-button *ngIf="checkLocalStorageForLoggedUser()" routerLink="/auth/register">{{signUp.text}}</button>
+        <button mat-button *ngIf="!checkLocalStorageForLoggedUser()"
+            (click)="filterPeople('true')">{{filterUserPeople.text}}</button>
+        <button mat-button *ngIf="!checkLocalStorageForLoggedUser()"
+            (click)="filterPeople('false')">{{filteAllrUserPeople.text}}</button>
         <button mat-button *ngIf="!checkLocalStorageForLoggedUser()" (click)="signOut()">{{LogOut.text}}</button>
     </div>
 </mat-toolbar>

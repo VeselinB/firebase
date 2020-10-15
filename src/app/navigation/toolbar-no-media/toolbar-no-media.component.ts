@@ -17,10 +17,15 @@ export class ToolbarNoMediaComponent implements OnInit {
   signUp;
   signIn;
   LogOut;
+  filterUserPeople;
+  filteAllrUserPeople;
+
   constructor(public data: DataService, private dialog: MatDialog, private router: Router, public peopleService: PeopleService, public authService: FirebaseService, private angularFirestore: AngularFirestore) {
     this.signIn = this.data.login();
     this.signUp = this.data.register();
     this.LogOut = this.data.signOut()
+    this.filterUserPeople = this.data.people()
+    this.filteAllrUserPeople = this.data.allPeople()
 
 
     authService.sharedEmail.subscribe(email => {
@@ -59,6 +64,11 @@ export class ToolbarNoMediaComponent implements OnInit {
   title = 'firebaseApp';
   email;
   photoURL;
+
+
+  public filterPeople(data) {
+    this.peopleService.filterPeople(data)
+  }
   getUserData() {
 
     //   this.db.collection('users').doc('some_uid').valueChanges().subscribe((response) => {

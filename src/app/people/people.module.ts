@@ -12,7 +12,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { PeopleEffects } from './people.effects';
 import { peopleReducer, reducer } from './people.reducer';
 import { DialogComponent } from './components/dialog/dialog.component';
-
+import { FlexLayoutModule, StyleUtils, StylesheetMap, LayoutStyleBuilder, MediaMarshaller, LayoutAlignStyleBuilder, FlexStyleBuilder } from '@angular/flex-layout';
+import { ɵMatchMedia, BreakPointRegistry, PrintHook } from '@angular/flex-layout/core';
 const routes: Route[] = [
   { path: 'people', component: PeopleComponent },
   { path: 'createPeople', component: CreatePeopleComponent },
@@ -22,6 +23,7 @@ const routes: Route[] = [
 @NgModule({
   declarations: [PeopleComponent, CreatePeopleComponent, DialogComponent],
   imports: [
+    FlexLayoutModule,
     MaterialModule,
     CommonModule,
     ReactiveFormsModule,
@@ -31,6 +33,18 @@ const routes: Route[] = [
     StoreModule.forFeature('people', reducer),
     EffectsModule.forFeature([PeopleEffects]),
 
+  ],
+  providers: [
+    StyleUtils,
+    StyleSheet,
+    StylesheetMap,
+    LayoutAlignStyleBuilder,
+    LayoutStyleBuilder,
+    FlexStyleBuilder,
+    MediaMarshaller,
+    ɵMatchMedia,
+    BreakPointRegistry,
+    PrintHook
   ],
   entryComponents: [DialogComponent, CreatePeopleComponent]
 })

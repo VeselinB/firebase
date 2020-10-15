@@ -18,16 +18,22 @@ export class PeopleComponent implements OnInit {
   search;
   loading;
   userId;
+  productsDisplayed = ["hhh", "hhh", "hhh", "hhh", "hhh", "hhh", "hhh"]
   showPeopleByChoosenOptionsBool = false;
   @ViewChild('callAPIDialog', { static: true }) callAPIDialog: TemplateRef<any>;
   constructor(public store: Store<any>, public peopleService: PeopleService, private dialog: MatDialog) {
     this.getPeople()
+    this.peopleService.sharedFilterPeopleByUser.subscribe(data => {
+      this.showPeopleByChoosenOptions(data)
+    })
   }
 
   ngOnInit() {
 
 
   }
+
+
   searchF() {
     this.getPeople()
     this.store.select(store => store.people).subscribe(store => {

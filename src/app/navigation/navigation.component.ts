@@ -30,24 +30,7 @@ export class NavigationComponent {
 
     this.authService.getEmail();
     this.authService.getPhotoUrl();
-    // this.angularFirestore.collection("people").add({ user: "user", ownerID: "123" })
-    // // this.angularFirestore.collection("people").valueChanges().subscribe(data => {
-    // //   console.log(data)
-    // // })
-    // // this.angularFirestore.doc("Ah7AKMFOECg5Lbz8fI7u").delete()
-    // //
-    // let userDoc = this.angularFirestore.firestore.collection(`people`);
-    // userDoc.get().then((querySnapshot) => {
-    //   querySnapshot.forEach((doc) => {
-    //     console.log(doc.id, "=>", doc.data());
-    //     this.angularFirestore.collection("people").doc(doc.id).update({ "user": "test" })
-    //   })
-    // })
 
-    // this.angularFirestore
-    //   .collection("people")
-    //   .doc("MINJ9eR59AM86HTA60hk")
-    //   .delete();
 
   }
   title = 'firebaseApp';
@@ -117,13 +100,6 @@ export class NavigationComponent {
 
   signOut() {
     let userDoc = this.angularFirestore.firestore.collection(`people`);
-    // userDoc.get().then((querySnapshot) => {
-    //   querySnapshot.forEach((doc) => {
-    //     console.log(doc.id, "=>", doc.data());
-    //     // this.angularFirestore.collection("people").doc(doc.id).update({ "user": "test" })
-    //     this.angularFirestore.collection("people").doc(doc.id).delete()
-    //   })
-    // })
 
     this.authService.logout()
     localStorage.clear()

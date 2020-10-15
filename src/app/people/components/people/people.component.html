@@ -4,14 +4,14 @@
 
 <!-- <button (click)="getPeople()">GetPeople</button> -->
 
-<button mat-button (click)="showPeopleByChoosenOptions('true')" class="mat-raised-button mat-primary"
+<!-- <button mat-button (click)="showPeopleByChoosenOptions('true')" class="mat-raised-button mat-primary"
     style="margin-right: 6px; margin-left: 25px;">Show
     People Created By you</button>
 <button mat-button style="margin-right: 6px;" (click)="showPeopleByChoosenOptions('false')"
     class="mat-raised-button mat-primary">Swow All
-    People</button>
+    People</button> -->
 
-<button mat-button (click)="createPeople()" class="mat-raised-button mat-primary">Create
+<button mat-button (click)="createPeople()" style="margin-left: 6px;" class="mat-raised-button mat-primary">Create
     People</button>
 <div class="loader" *ngIf="loading"></div>
 <div class="display-flex">
@@ -27,7 +27,7 @@
             <mat-card-title>Age: </mat-card-title>
             <mat-card-subtitle>{{person.age}}</mat-card-subtitle>
         </mat-card-header>
-        <div style="height: 250px; width: 350px;  margin: 0 0 0 0">
+        <div style="height: 250px; width: 284px;  margin: 0 0 0 0">
             <img style="max-width: 200%;max-height: 100%" mat-card-image
                 [src]="person.img=='' ? 'https://www.allianceplast.com/wp-content/uploads/2017/11/no-image.png' : person.img"
                 alt="Photo">
@@ -40,25 +40,7 @@
                 bred for hunting. -->
             </p>
         </mat-card-content>
-        <!--  -->
-        <!-- <mat-card class="example-card" >
-            <mat-card-header>
-                <img style="width: 120px; height: 150px; margin-left: 70px;" mat-card-image src="{{person.img}}"
-                    alt="Photo">
 
-                <mat-card-title>Owner Email: {{person.
-                ownerEmail}} </mat-card-title>
-                <mat-card-title>First Name: </mat-card-title>
-
-
-                <mat-card-subtitle>{{person.firstName}}</mat-card-subtitle>
-                <mat-card-title>Second Name: </mat-card-title>
-                <mat-card-subtitle>{{person.secondName}}</mat-card-subtitle>
-
-
-                <mat-card-title>Age: </mat-card-title>
-                <mat-card-subtitle>{{person.age}}</mat-card-subtitle>
-         </mat-card-header> -->
 
         <mat-card-actions align="end" *ngIf="userId==person.ownerId">
             <button mat-button class="mat-raised-button mat-primary" (click)="editPeople(person)">Edit</button>
@@ -75,3 +57,64 @@
         <button color="warn" class="mat-raised-button mat-warn" mat-button matDialogClose="yes">Yes</button>
     </mat-dialog-actions>
 </ng-template>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+<div fxLayout="row">
+    <div fxFlex *ngFor="let person of people">
+        <mat-card class="example-card">
+            <mat-card-header>
+               
+                <mat-card-title>Owner Email: {{person.
+                ownerEmail}} </mat-card-title>
+                <mat-card-title>First Name:</mat-card-title>
+                <mat-card-subtitle>{{person.firstName}}</mat-card-subtitle>
+                <mat-card-title>Second Name:</mat-card-title>
+                <mat-card-subtitle>{{person.secondName}}</mat-card-subtitle>
+                <mat-card-title>Age: </mat-card-title>
+                <mat-card-subtitle>{{person.age}}</mat-card-subtitle>
+            </mat-card-header>
+            <div style="height: 250px; width: 350px;  margin: 0 0 0 0">
+                <img style="max-width: 200%;max-height: 100%" mat-card-image
+                    [src]="person.img=='' ? 'https://www.allianceplast.com/wp-content/uploads/2017/11/no-image.png' : person.img"
+                    alt="Photo">
+            </div>
+
+            <mat-card-content>
+                <p>
+                
+                </p>
+            </mat-card-content>
+           
+
+            <mat-card-actions align="end" *ngIf="userId==person.ownerId">
+                <button mat-button class="mat-raised-button mat-primary" (click)="editPeople(person)">Edit</button>
+                <button mat-button class="mat-raised-button mat-warn" (click)="remove(person.id)">Remove</button>
+            </mat-card-actions>
+            <p></p>
+        </mat-card>
+    </div>
+    <div fxFlex>Second item in row</div>
+</div>
+<div fxLayout="column">
+    <div fxFlex>First item in column</div>
+    <div fxFlex>Second item in column</div>
+</div>
+<ng-template #callAPIDialog>
+    <h2 matDialogTitle>Are you sure?</h2>
+    <mat-dialog-actions align="end">
+        <button mat-button matDialogClose="no">No</button>
+        <button color="warn" class="mat-raised-button mat-warn" mat-button matDialogClose="yes">Yes</button>
+    </mat-dialog-actions>
+</ng-template> -->

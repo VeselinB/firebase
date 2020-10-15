@@ -21,6 +21,9 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { EditDataComponent } from './users/components/edit-data/edit-data.component';
 import { ToolbarMediaComponent } from './navigation/toolbar-media/toolbar-media.component';
 import { ToolbarNoMediaComponent } from './navigation/toolbar-no-media/toolbar-no-media.component'
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +34,7 @@ import { ToolbarNoMediaComponent } from './navigation/toolbar-no-media/toolbar-n
 
   ],
   imports: [
+
     ReactiveFormsModule,
     FormsModule,
     MaterialModule,

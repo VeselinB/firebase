@@ -26,6 +26,20 @@
             <span class="title" mat-line>{{LogOut.text}}</span>
             <!-- <span mat-line class="secondary">test</span> -->
         </a>
+
+        <a *ngIf="!checkLocalStorageForLoggedUser()" mat-list-item class="sidenav-link" (click)="sidenav.toggle()"
+            (click)="filterPeople('true')">
+            <mat-icon mat-list-icon>{{filterUserPeople.icon}}</mat-icon>
+            <span class="title" mat-line>{{filterUserPeople.text}}</span>
+            <!-- <span mat-line class="secondary">test</span> -->
+        </a>
+        <a *ngIf="!checkLocalStorageForLoggedUser()" mat-list-item class="sidenav-link" (click)="sidenav.toggle()"
+            (click)="filterPeople('false')">
+            <mat-icon mat-list-icon>{{filteAllrUserPeople.icon}}</mat-icon>
+            <span class="title" mat-line>{{filteAllrUserPeople.text}}</span>
+            <!-- <span mat-line class="secondary">test</span> -->
+        </a>
+
     </mat-nav-list>
 </mat-sidenav>
 

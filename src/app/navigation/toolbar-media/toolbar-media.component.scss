@@ -1,5 +1,6 @@
 
 .example-spacer {
+  display: flex;
   flex: 1 1 auto;
     
   }
@@ -18,18 +19,3 @@ button{
   font-size: large;
 }
 
-@media only screen and (min-width: 500px) {
-  .hide-on-small-screens {
-      display: none;
-  }
-
-  
-}
-
-@media only screen and (max-width: 500px) {
-  .show-on-small-screens {
-      display: none;
-  }
-
-  
-}
