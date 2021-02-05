@@ -10,7 +10,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { MaterialModule } from './material/material.module';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { LoginComponent } from './users/components/login/login.component';
 import { RegisterComponent } from './users/components/register/register.component';
 import { EffectsModule } from '@ngrx/effects';
@@ -34,7 +34,7 @@ import { ToolbarNoMediaComponent } from './navigation/toolbar-no-media/toolbar-n
 
   ],
   imports: [
-
+    AngularFireStorageModule,
     ReactiveFormsModule,
     FormsModule,
     MaterialModule,

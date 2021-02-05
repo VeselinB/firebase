@@ -12,9 +12,8 @@
     <mat-form-field>
         <input matInput type="number" placeholder="Age" formControlName="age">
     </mat-form-field>
-    <mat-form-field>
-        <input matInput placeholder="image URl optional" formControlName="img">
-    </mat-form-field>
+    <button mat-button class="mat-raised-button" (click)="fileInput.click()">Choose Image ...</button>
+    <input #fileInput type="file" accept="image/*" (change)="uploadFile($event)" multiple style="display:none;" />
 
     <mat-form-field>
         <input matInput placeholder="adress optional" formControlName="adress">
